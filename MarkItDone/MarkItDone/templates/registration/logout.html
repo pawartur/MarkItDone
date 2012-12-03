@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <h2>{% trans "Logout complete" %}</h2>
+        {% url auth_login as login_url %}
+        {% blocktrans %}You logged out succesfully. Wanna <a href="{{login_url}}" class="btn btn-primary">log in</a> again?{% endblocktrans %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main_container_class %}container{% endblock main_container_class %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <h2>{% trans "500 Internal Server Error" %}</h2>
+        <p>
+            {% trans "Ooops... Something has gone horribly wrong. But don't worry, our world-class admins are already looking into it!" %}
+        </p>
+    </div>
+</div>
+{% endblock content %}

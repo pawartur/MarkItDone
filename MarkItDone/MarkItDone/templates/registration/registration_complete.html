@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <h2>{% trans "Registration complete" %}</h2>
+        {% blocktrans %}
+        Registration complete. Check your mailbox for an email with activation link.
+        You have three days to click it!
+        {% endblocktrans %}
+    </div>
+</div>
+{% endblock content %}

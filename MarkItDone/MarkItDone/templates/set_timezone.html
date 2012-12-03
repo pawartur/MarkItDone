@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n tz %}
+
+{% block main_container_class %}container{% endblock main_container_class %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <form action="{% url set_timezone %}" method="POST">
+            {% csrf_token %}
+            <label for="timezone">Time zone:</label>
+            <select name="timezone">
+                {% for tz in timezones %}
+                <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected="selected"{% endif %}>{{ tz }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Set" />
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <h2>{% trans "Activation error" %}</h2>
+        {% url registration_register as registration_url %}
+        {% blocktrans %}
+        The activation token turned out to be invalid. Maybe you registered more
+        than 3 days ago? In any case, you can <a href="{{registration_url}}">register</a> again now.
+        {% endblocktrans %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <h2>{% trans "Activation complete" %}</h2>
+        {% url auth_login as login_url %}
+        {% blocktrans %}
+        You account has been activater, you can <a href="{{login_url}}" class="btn btn-primary">log in</a> now.
+        {% endblocktrans %}
+    </div>
+</div>
+{% endblock content %}

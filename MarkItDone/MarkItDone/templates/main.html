@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load to_json get_owned_todos_tags compress %}
+
+{% block head_extra %}
+<!-- Load the script "js/main.js" as our entry point -->
+<!--<script data-main="{{ STATIC_URL }}js/main" src="{{ STATIC_URL }}js/libs/require/require.js"></script>-->
+{% endblock head_extra %}
+
+{% block content %}
+<div id="content" class="row-fluid">
+    <div class="span3">
+      <div class="well sidebar-nav" id="sidebar">
+      </div><!--/.well -->
+    </div><!--/span-->
+    <div class="span9" id="main">
+        <div id="todo_list_actions" class="row-fluid"></div>
+        <div id="todo_list"></div>
+    </div><!--/span-->
+</div><!--/row-->
+{% endblock content %}
+
+{% block body_extra %}
+    {% compress js %}
+    <script src="{{ STATIC_URL }}js/libs/less/less-1.3.0.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/spin/spin.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/jquery/jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/underscore/underscore.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/backbone/backbone.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/jquery-plugins/jquery.cookie.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/jquery-plugins/jquery.spin.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/backbone-plugins/backbone.extensions.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap-transition.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap-alert.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap-modal.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap-dropdown.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap-tooltip.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap-popover.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap-button.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap-collapse.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap-plugins/bootstrap-datepicker.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap-plugins/bootstrap-timepicker.js"></script>
+
+    <script type="text/javascript">
+        bootstrapped_todo_lists = {{request.user.owned_todolists.all|to_json}};
+        bootstrapped_todo_contexts = {{request.user.owned_todocontexts.all|to_json}};
+        bootstrapped_todo_tags = {{request.user|get_owned_todos_tags|to_json}};
+    </script>
+
+    <script src="{{ STATIC_URL }}js/todo_lists/init.js"></script>
+    <script src="{{ STATIC_URL }}js/todo_lists/templates.js"></script>
+    <script src="{{ STATIC_URL }}js/todo_lists/models.js"></script>
+    <script src="{{ STATIC_URL }}js/todo_lists/views.js"></script>
+    <script src="{{ STATIC_URL }}js/todo_lists/router.js"></script>
+    <script src="{{ STATIC_URL }}js/todo_lists/app.js"></script>
+    <script type="text/javascript">
+        ToDoLists.app.initialize();
+    </script>
+    {% endcompress %}
+{% endblock body_extra %}

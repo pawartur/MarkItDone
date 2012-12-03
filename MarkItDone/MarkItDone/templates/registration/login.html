@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <h2>{% trans "Login" %}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+            {{ form }}
+            </div>
+            <div class="row">
+                {% url registration_register as registration_url %}
+                {% blocktrans %}<button class="btn btn-success" href="#">Login</button> or <a class="btn btn-primary" href="{{registration_url}}">Register</a>{% endblocktrans %}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

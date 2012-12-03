@@ -1,0 +1,12 @@
+Django>=1.4
+pymongo==1.9
+celery>=2.5.3
+django-celery>=2.5.5
+-e git://github.com/alex/django-filter.git#egg=django_filter-dev
+-e git://github.com/pawartur/django-rest-views.git#egg=django-rest-views
+-e git://github.com/pawartur/django-todo-lists.git#egg=django-todo-lists
+django-registration>=0.8
+django-taggit>=0.9.3
+django-extensions>=0.8
+django-compressor>=1.1.2
+pytz>=2012c

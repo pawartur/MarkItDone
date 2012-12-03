@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main_container_class %}container{% endblock main_container_class %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <h2>{% trans "404 Not Found" %}</h2>
+        <p>
+            {% trans "Ooops... This is a wrong address. Better luck next time." %}
+        </p>
+    </div>
+</div>
+{% endblock content %}

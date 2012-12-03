@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <div class="span4 offset4">
+        <h2>{% trans "Register" %}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+            {{ form }}
+            </div>
+            <div class="row">
+                <button class="btn btn-success" href="#">{% trans "Register" %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

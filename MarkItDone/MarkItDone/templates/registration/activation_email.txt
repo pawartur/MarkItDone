@@ -1,0 +1,8 @@
+{% load i18n %}
+
+{%url registration_activate activation_key as activation_url %}
+
+{% blocktrans %}
+Go to this url {{site}}{{activation_url}} to activate your MarkItDone account.
+This link will expire in {{expiration_days}} days.
+{% endblocktrans %}
